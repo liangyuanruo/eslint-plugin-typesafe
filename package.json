@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-neverthrow",
+  "version": "1.0.8",
+  "description": "ESLint plugin that disallows throwing of Errors in synchronous code",
+  "main": "./lib/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive tests/rules"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "lint"
+  ],
+  "author": "Yuanruo Liang",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "requireindex": "^1.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  }
+}
