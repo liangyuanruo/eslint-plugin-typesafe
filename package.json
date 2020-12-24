@@ -1,7 +1,7 @@
 {
-  "name": "eslint-plugin-neverthrow",
+  "name": "eslint-plugin-typesafe",
   "version": "1.0.8",
-  "description": "ESLint plugin that disallows throwing of Errors in synchronous code",
+  "description": "ESLint plugin that encourages type safety",
   "main": "./lib/index.js",
   "directories": {
     "test": "tests"
@@ -12,7 +12,8 @@
   "keywords": [
     "eslint",
     "eslint-plugin",
-    "lint"
+    "lint",
+    "type safety"
   ],
   "author": "Yuanruo Liang",
   "license": "MIT",
