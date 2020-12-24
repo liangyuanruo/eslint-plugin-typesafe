@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-typesafe",
-  "version": "1.0.8",
+  "version": "0.1.0",
   "description": "ESLint plugin that encourages type safety",
   "main": "./lib/index.js",
   "directories": {
