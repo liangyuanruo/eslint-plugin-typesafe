@@ -61,6 +61,16 @@ eslintTester.run("no-throw-sync-func", rule, {
                 }
             }`,
             parserOptions: { ecmaVersion: 8, sourceType: "module" }
+    }, {
+        // Switch statement in async arrow function expression
+        code: `
+            const f = async (x) => {
+                switch(x) {
+                    default:
+                        throw new Error()
+                }
+            }`,
+            parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }],
   invalid: [
     {
