@@ -2,6 +2,9 @@
   "name": "eslint-plugin-typesafe",
   "version": "0.1.1",
   "description": "ESLint plugin to encourage type-safe practices",
+  "author": "Yuanruo Liang <liangyuanruo@gmail.com>",
+  "homepage": "https://github.com/liangyuanruo/eslint-plugin-typesafe",
+  "bugs": "https://github.com/liangyuanruo/eslint-plugin-typesafe/issues",
   "main": "./lib/index.js",
   "directories": {
     "test": "tests"
@@ -15,7 +18,6 @@
     "lint",
     "type safety"
   ],
-  "author": "Yuanruo Liang",
   "license": "MIT",
   "dependencies": {
     "babel-eslint": "^10.1.0",
