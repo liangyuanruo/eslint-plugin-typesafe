@@ -51,6 +51,16 @@ eslintTester.run("no-throw-sync-func", rule, {
                 throw new Error()
             })`,
             parserOptions: { ecmaVersion: 8, sourceType: "module" }
+    }, {
+        // Switch statement in async function
+        code: `
+            async function f(x){
+                switch(x) {
+                    default:
+                        throw new Error()
+                }
+            }`,
+            parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }],
   invalid: [
     {
@@ -61,7 +71,7 @@ eslintTester.run("no-throw-sync-func", rule, {
         }`,
         parserOptions: { ecmaVersion: 8, sourceType: "module" },
       errors: [
-        { message: "Errors from synchronous function declarations should be returned instead" }
+        { message: "Synchronous function declarations should return an instance of Error instead of throwing." }
       ],
     }, {
         // Synchronous function object expression
@@ -72,7 +82,7 @@ eslintTester.run("no-throw-sync-func", rule, {
         }`,
         parserOptions: { ecmaVersion: 8, sourceType: "module" },
         errors: [
-            { message: "Errors from synchronous functions in object expressions should be returned instead" }
+            { message: "Synchronous functions in object properties should return an instance of Error instead of throwing." }
         ],
     }, {
         // Synchronous arrow declaration
@@ -82,7 +92,33 @@ eslintTester.run("no-throw-sync-func", rule, {
         }`,
         parserOptions: { ecmaVersion: 8, sourceType: "module" },
         errors: [
-            { message: "Errors from synchronous arrow function declaration should be returned instead" }
+            { message: "Synchronous arrow function expressions should return an instance of Error instead of throwing." }
+        ]
+    }, {
+        // Switch statement in synchronous function
+        code: `
+            function f(x){
+                switch(x) {
+                    default:
+                        throw new Error()
+                }
+            }`,
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+            { message: "Synchronous function declarations should return an instance of Error instead of throwing." }
+        ]
+    }, {
+        // Switch statement in arrow function expression
+        code: `
+            const f = (x) => {
+                switch(x) {
+                    default:
+                        throw new Error()
+                }
+            }`,
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+            { message: "Synchronous arrow function expressions should return an instance of Error instead of throwing." }
         ]
     }]
 });
