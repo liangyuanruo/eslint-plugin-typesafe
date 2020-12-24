@@ -20,7 +20,7 @@ function f(x: number): number {
 }
 
 function g(x: number): number {
-    return Math.random() > 0.5 ? x : throw new Erorr()
+    return Math.random() > 0.5 ? x : throw new Error()
 }
 ```
 
