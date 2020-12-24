@@ -18,9 +18,9 @@
   "author": "Yuanruo Liang",
   "license": "MIT",
   "dependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.16.0",
-    "requireindex": "^1.1.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.16.0",
+    "requireindex": "^1.2.0"
   },
   "devDependencies": {
     "mocha": "^4.1.0"

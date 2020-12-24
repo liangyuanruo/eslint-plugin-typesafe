@@ -20,14 +20,14 @@ eslintTester.run("no-throw-sync-func", rule, {
         const f = async () => {
             throw new Error()
         }`,
-        parserOptions: { ecmaVersion: 6, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Async function object expression
         code: `
             const f = {
                 async g() { throw new Error() }
             }`,
-        parserOptions: { ecmaVersion: 6, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Class declaration
         code: `
@@ -36,21 +36,21 @@ eslintTester.run("no-throw-sync-func", rule, {
                     throw new Error()
                 }
             }`,
-            parserOptions: { ecmaVersion: 6, sourceType: "module" }
+            parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Promise-chaining with synchronous arrow expression
         code: `
             Promise.resolve().then(() => {
                 throw new Error()
             })`,
-            parserOptions: { ecmaVersion: 6, sourceType: "module" }
+            parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Promise-chaining with synchronous function expression
         code: `
             Promise.resolve().then(function () {
                 throw new Error()
             })`,
-            parserOptions: { ecmaVersion: 6, sourceType: "module" }
+            parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }],
   invalid: [
     {
@@ -59,7 +59,7 @@ eslintTester.run("no-throw-sync-func", rule, {
         function f() {
             throw new Error()
         }`,
-        parserOptions: { ecmaVersion: 6, sourceType: "module" },
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
       errors: [
         { message: "Errors from synchronous function declarations should be returned instead" }
       ],
@@ -70,7 +70,7 @@ eslintTester.run("no-throw-sync-func", rule, {
                 throw new Error()
             }
         }`,
-        parserOptions: { ecmaVersion: 6, sourceType: "module" },
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
         errors: [
             { message: "Errors from synchronous functions in object expressions should be returned instead" }
         ],
@@ -80,7 +80,7 @@ eslintTester.run("no-throw-sync-func", rule, {
         const f = () => {
             throw new Error()
         }`,
-        parserOptions: { ecmaVersion: 6, sourceType: "module" },
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
         errors: [
             { message: "Errors from synchronous arrow function declaration should be returned instead" }
         ]
