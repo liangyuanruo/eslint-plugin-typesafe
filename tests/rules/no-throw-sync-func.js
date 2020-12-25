@@ -36,21 +36,21 @@ eslintTester.run("no-throw-sync-func", rule, {
                     throw new Error()
                 }
             }`,
-            parserOptions: { ecmaVersion: 8, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Promise-chaining with synchronous arrow expression
         code: `
             Promise.resolve().then(() => {
                 throw new Error()
             })`,
-            parserOptions: { ecmaVersion: 8, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Promise-chaining with synchronous function expression
         code: `
             Promise.resolve().then(function () {
                 throw new Error()
             })`,
-            parserOptions: { ecmaVersion: 8, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Switch statement in async function
         code: `
@@ -60,7 +60,7 @@ eslintTester.run("no-throw-sync-func", rule, {
                         throw new Error()
                 }
             }`,
-            parserOptions: { ecmaVersion: 8, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
         // Switch statement in async arrow function expression
         code: `
@@ -70,7 +70,21 @@ eslintTester.run("no-throw-sync-func", rule, {
                         throw new Error()
                 }
             }`,
-            parserOptions: { ecmaVersion: 8, sourceType: "module" }
+        parserOptions: { ecmaVersion: 8, sourceType: "module" }
+    }, {
+        // Class constructor with async methods
+        code: `
+            class C {
+                constructor(){
+                    throw new Error()
+                }
+            
+                async f() {
+                    throw new Error()
+                }
+            }
+        `,
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
     }],
   invalid: [
     {
@@ -126,6 +140,19 @@ eslintTester.run("no-throw-sync-func", rule, {
                         throw new Error()
                 }
             }`,
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+            { message: "Synchronous arrow function expressions should return an instance of Error instead of throwing." }
+        ]
+    }, {
+        // Class with synchronous method
+        code: `
+            class C {
+                f() {
+                    throw new Error()
+                }
+            }
+        `,
         parserOptions: { ecmaVersion: 8, sourceType: "module" },
         errors: [
             { message: "Synchronous arrow function expressions should return an instance of Error instead of throwing." }
