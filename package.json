@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-typesafe",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "ESLint plugin to encourage type-safe practices",
   "author": "Yuanruo Liang <liangyuanruo@gmail.com>",
   "homepage": "https://github.com/liangyuanruo/eslint-plugin-typesafe",
