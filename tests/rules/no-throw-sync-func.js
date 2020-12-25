@@ -72,7 +72,7 @@ eslintTester.run("no-throw-sync-func", rule, {
             }`,
         parserOptions: { ecmaVersion: 8, sourceType: "module" }
     }, {
-        // Class constructor with async methods
+        // Class constructor with async instance method
         code: `
             class C {
                 constructor(){
@@ -80,6 +80,20 @@ eslintTester.run("no-throw-sync-func", rule, {
                 }
             
                 async f() {
+                    throw new Error()
+                }
+            }
+        `,
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
+    }, {
+        // Class constructor with async static method
+        code: `
+            class C {
+                constructor(){
+                    throw new Error()
+                }
+            
+                static async f() {
                     throw new Error()
                 }
             }
@@ -145,7 +159,7 @@ eslintTester.run("no-throw-sync-func", rule, {
             { message: "Synchronous arrow function expressions should return an instance of Error instead of throwing." }
         ]
     }, {
-        // Class with synchronous method
+        // Class with synchronous instance method
         code: `
             class C {
                 f() {
@@ -155,7 +169,20 @@ eslintTester.run("no-throw-sync-func", rule, {
         `,
         parserOptions: { ecmaVersion: 8, sourceType: "module" },
         errors: [
-            { message: "Synchronous arrow function expressions should return an instance of Error instead of throwing." }
+            { message: "Synchronous methods should return an instance of Error instead of throwing." }
+        ]
+    }, {
+        // Class with synchronous static method
+        code: `
+            class C {
+                static f() {
+                    throw new Error()
+                }
+            }
+        `,
+        parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+            { message: "Synchronous methods should return an instance of Error instead of throwing." }
         ]
     }]
 });
