@@ -57,6 +57,16 @@ const f = {
         throw new Error()
     }
 }
+
+class C {
+    f() {
+        throw new Error()
+    }
+
+    static g() {
+        throw new Error()
+    }
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -83,6 +93,14 @@ Promise.resolve().then(() => {
 
 class C {
     constructor() {
+        throw new Error()
+    }
+
+    async f() {
+        throw new Error()
+    }
+
+    static async g() {
         throw new Error()
     }
 }
