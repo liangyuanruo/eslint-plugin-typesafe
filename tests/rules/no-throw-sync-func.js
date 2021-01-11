@@ -4,14 +4,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../lib/rules/no-throw-sync-func");
-var RuleTester = require('eslint').RuleTester;
+const rule = require("../../lib/rules/no-throw-sync-func");
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new RuleTester();
+const eslintTester = new RuleTester();
 
 eslintTester.run("no-throw-sync-func", rule, {
   valid: [{

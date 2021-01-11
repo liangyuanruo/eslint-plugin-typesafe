@@ -4,14 +4,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../lib/rules/no-await-without-trycatch");
-var RuleTester = require('eslint').RuleTester;
+const rule = require("../../lib/rules/no-await-without-trycatch");
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new RuleTester();
+const eslintTester = new RuleTester();
 
 eslintTester.run("no-await-without-trycatch", rule, {
   valid: [
