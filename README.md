@@ -1,37 +1,9 @@
-# Type-safe practices for TypeScript
-
-TypeScript offers a power static typing system that can help developers to avoid painful bugs. However, there are some limitations.
-
-For example, there is no way to force error handling:
-
-```ts
-function f(): never {
-    throw new Error()
-}
-
-f() // No type error
-```
-
-More confusingly, the following functions have the same type signature:
-
-```ts
-function f(x: number): number {
-    return x
-}
-
-function g(x: number): number {
-    return Math.random() > 0.5 ? x : throw new Error()
-}
-```
-
-Given a codebase of sufficient complexity, an unexpected error state will eventually occur that could bubble up to the entry point of the application.
-
-Although intended for TypeScript, this package is also interoperable with JavaScript codebases.
+# Type-safe practices for TypeScript and JavaScript
 
 ## Getting started
 
 ```bash
-npm install save-dev eslint-plugin-typesafe
+npm install --save-dev eslint-plugin-typesafe
 ```
 
 And configure your `.eslintrc` file accordingly. For example:
@@ -43,19 +15,58 @@ And configure your `.eslintrc` file accordingly. For example:
     ],
     "rules": {
         "typesafe/no-throw-sync-func": "error",
+        "typesafe/no-await-without-trycatch": "warn",
     }
 }
 ```
 
-## Rules
+## Motivation
+
+TypeScript offers a power static typing system that can help developers to avoid painful bugs, especially in sizeable projects.
+
+However, some limitations remain as TypeScript is committed to being a superset of the JavaScript language.
+
+This plugin aims to implement additional rules that can help improve type safety, but are not available as standard ESLint rules.
+
+For example, following functions have the same type signature:
+
+```ts
+function f(x: number): number {
+    return x
+}
+
+function g(x: number): number {
+    return Math.random() > 0.5 ? x : throw new Error()
+}
+```
+
+There is also no way to force error handling:
+
+```ts
+function f(): never {
+    throw new Error()
+}
+
+f() // No type error
+```
+
+Given a codebase of sufficient complexity, an unexpected error state will eventually occur that could bubble up to the entry point of the application.
+
+## Achieving maximal type safety
+
+Consider encoding failures in your program with a library such as [neverthrow](https://www.npmjs.com/package/neverthrow), or adopting functional programming with [fp-ts](https://www.npmjs.com/package/fp-ts).
+
+## Existing rules
 
 The current rule(s) are:
 
 * [no-throw-sync-func](./docs/rules/no-throw-sync-func.md)
+* [no-await-without-trycatch](./docs/rules/no-await-without-trycatch.md)
 
-Some suggested rules in the pipeline:
+## Future suggestions
 
-* no-await-without-trycatch
-* no-promise-without-catch
+### no-promise-without-catch
+
+To check whether a Promise or thenable is proceeded by a catch clause.
 
 If you feel anything is missing or would like to see additional rules added, feel free to write an [issue](https://github.com/liangyuanruo/eslint-plugin-typesafe/issues).
