@@ -9,7 +9,7 @@ This rule disallows `await` expressions outside of try-catch blocks.
 Examples of **incorrect** code for this rule:
 
 ```js
-/*eslint no-throw-sync-func: "error"*/
+/*eslint no-await-without-trycatch: "error"*/
 async function f() {
     await g()
 }
@@ -18,7 +18,7 @@ async function f() {
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint no-throw-sync-func: "error"*/
+/*eslint no-await-without-trycatch: "error"*/
 async function f() {
     try {
         await g()
