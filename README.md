@@ -52,10 +52,10 @@ And configure your `.eslintrc` file accordingly. For example:
 The current rule(s) are:
 
 * [no-throw-sync-func](./docs/rules/no-throw-sync-func.md)
+* [no-await-without-trycatch](./docs/rules/no-await-without-trycatch.md)
 
 Some suggested rules in the pipeline:
 
-* no-await-without-trycatch
 * no-promise-without-catch
 
 If you feel anything is missing or would like to see additional rules added, feel free to write an [issue](https://github.com/liangyuanruo/eslint-plugin-typesafe/issues).
