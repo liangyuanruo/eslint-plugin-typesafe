@@ -149,7 +149,20 @@ eslintTester.run("promise-catch", rule, {
           errors: [
             { message: "Missing catch statement." }
           ],
-      },
+      }, {
+        // Alternating catch-then ending in a then
+        code: `
+          const y = async () => {
+              const x = await z()
+              return x
+          }
+
+          y().then(x => x).catch(console.error).then(x => x)`,
+          parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+          { message: "Missing catch statement." }
+        ],
+    }
       // TODO: Instance method calls, inheritance
       // {
       //   code: `
