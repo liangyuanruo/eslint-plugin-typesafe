@@ -149,6 +149,25 @@ eslintTester.run("promise-catch", rule, {
           errors: [
             { message: "Missing catch statement." }
           ],
-        }
+      },
+      // TODO: Instance method calls, inheritance
+      // {
+      //   code: `
+      //     class C {
+      //       async f() {}
+      //     }
+      //     class D extends C {
+      //       async g() {
+      //         return super.f()
+      //       }
+      //     }
+      //     const d = new D()
+      //     d.g()
+      //     `,
+      //     parserOptions: { ecmaVersion: 8, sourceType: "module" },
+      //   errors: [
+      //     { message: "Missing catch statement." }
+      //   ]
+      // }
   ]
 });
