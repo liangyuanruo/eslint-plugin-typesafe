@@ -1,6 +1,6 @@
 # disallow awaits outside of try-catch blocks (no-await-without-trycatch)
 
-Asynchronous function calls might fail. Calls using ES6 async-await syntax should wrap `await` calls in a try-catch block.
+Asynchronous function calls might fail. Calls using ES8 async-await syntax should wrap `await` calls in a try-catch block.
 
 ## Rule Details
 
