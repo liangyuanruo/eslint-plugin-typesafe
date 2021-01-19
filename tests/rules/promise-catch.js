@@ -94,7 +94,16 @@ eslintTester.run("promise-catch", rule, {
 
         y().catch(e => console.error(e)).then(x => x).catch(e => console.error(e))`,
         parserOptions: { ecmaVersion: 8, sourceType: "module" }
-    }
+    }, {
+      // Synchronous function that returns Promise
+      code: `
+      function f() {
+        return new Promise((resolve, reject) => resolve(1))
+      }
+
+      f().catch(e => console.error(e))`,
+      parserOptions: { ecmaVersion: 8, sourceType: "module" }
+    },
   ],
   invalid: [
     {
@@ -162,7 +171,17 @@ eslintTester.run("promise-catch", rule, {
         errors: [
           { message: "Missing catch statement." }
         ],
-    }
+      }, {
+        // Alternating catch-then ending in a then
+        code: `
+          function f() { return new Promise((resolve, reject) => resolve(1)) }
+
+          f().then(x => x).catch(console.error).then(x => x)`,
+          parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+          { message: "Missing catch statement." }
+        ],
+      }
       // TODO: Instance method calls, inheritance
       // {
       //   code: `
