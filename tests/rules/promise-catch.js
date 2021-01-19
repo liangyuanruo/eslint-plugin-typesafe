@@ -172,9 +172,29 @@ eslintTester.run("promise-catch", rule, {
           { message: "Missing catch statement." }
         ],
       }, {
-        // Alternating catch-then ending in a then
+        // Alternating catch-then returning a new Promise
         code: `
           function f() { return new Promise((resolve, reject) => resolve(1)) }
+
+          f().then(x => x).catch(console.error).then(x => x)`,
+          parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+          { message: "Missing catch statement." }
+        ],
+      }, {
+        // Alternating catch-then returning a Promise literal
+        code: `
+          function f() { return Promise.reject(123) }
+
+          f().then(x => x).catch(console.error).then(x => x)`,
+          parserOptions: { ecmaVersion: 8, sourceType: "module" },
+        errors: [
+          { message: "Missing catch statement." }
+        ],
+      }, {
+        // Alternating catch-then returning a Promise literal
+        code: `
+          function f() { return Promise.resolve(123) }
 
           f().then(x => x).catch(console.error).then(x => x)`,
           parserOptions: { ecmaVersion: 8, sourceType: "module" },
