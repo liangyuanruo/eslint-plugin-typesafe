@@ -43,4 +43,4 @@ Set this rule to `error` to avoid risking `UnhandledPromiseRejectionWarning`s in
 
 ## Note
 
-This rule currently only works for async function declarations. It does not detect cases where a synchronous function returns `Promise` objects.
+This rule is experimental. For a more robust implementation for TypeScript, check out [typescript-eslint/no-floating-promises](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-floating-promises.md).
