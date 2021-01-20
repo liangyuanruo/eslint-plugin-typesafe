@@ -60,6 +60,6 @@ Consider encoding failures in your program with a library such as [neverthrow](h
 
 The current rule(s) are:
 
-* [no-throw-sync-func](./docs/rules/no-throw-sync-func.md)
-* [no-await-without-trycatch](./docs/rules/no-await-without-trycatch.md)
-* [promise-catch](./docs/rules/promise-catch.md) (beta)
+* [no-throw-sync-func](https://github.com/liangyuanruo/eslint-plugin-typesafe/blob/master/docs/rules/no-throw-sync-func.md)
+* [no-await-without-trycatch](https://github.com/liangyuanruo/eslint-plugin-typesafe/blob/master/docs/rules/no-await-without-trycatch.md)
+* [promise-catch](https://github.com/liangyuanruo/eslint-plugin-typesafe/blob/master/docs/rules/promise-catch.md) (beta)
