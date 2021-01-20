@@ -16,6 +16,7 @@ And configure your `.eslintrc` file accordingly. For example:
     "rules": {
         "typesafe/no-throw-sync-func": "error",
         "typesafe/no-await-without-trycatch": "warn",
+        "typesafe/promise-catch": "error",
     }
 }
 ```
