@@ -62,11 +62,4 @@ The current rule(s) are:
 
 * [no-throw-sync-func](./docs/rules/no-throw-sync-func.md)
 * [no-await-without-trycatch](./docs/rules/no-await-without-trycatch.md)
-
-## Future suggestions
-
-### no-promise-without-catch
-
-To check whether a Promise or thenable is proceeded by a catch clause.
-
-If you feel anything is missing or would like to see additional rules added, feel free to write an [issue](https://github.com/liangyuanruo/eslint-plugin-typesafe/issues).
+* [promise-catch](./docs/rules/promise-catch.md) (beta)
