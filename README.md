@@ -54,7 +54,7 @@ Given a codebase of sufficient complexity, an unexpected error state will eventu
 
 ## Achieving maximal type safety
 
-Consider encoding failures in your program with a library such as [neverthrow](https://www.npmjs.com/package/neverthrow), or adopting functional programming with [fp-ts](https://www.npmjs.com/package/fp-ts).
+Instead of merely using TypeScript, consider encoding failures in your program with a library such as [neverthrow](https://www.npmjs.com/package/neverthrow), or adopting functional programming with [fp-ts](https://www.npmjs.com/package/fp-ts).
 
 ## Existing rules
 
@@ -63,3 +63,7 @@ The current rule(s) are:
 * [no-throw-sync-func](https://github.com/liangyuanruo/eslint-plugin-typesafe/blob/master/docs/rules/no-throw-sync-func.md)
 * [no-await-without-trycatch](https://github.com/liangyuanruo/eslint-plugin-typesafe/blob/master/docs/rules/no-await-without-trycatch.md)
 * [promise-catch](https://github.com/liangyuanruo/eslint-plugin-typesafe/blob/master/docs/rules/promise-catch.md) (beta)
+
+## Future work
+
+Integrate with [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) so that TypeScript syntax can be explicitly supported.
